@@ -1,7 +1,7 @@
-package com.example.Task.Management.System.User.Controller;
+package com.example.Task.Management.System.User_Service.Controller;
 
-import com.example.Task.Management.System.User.Data.User;
-import com.example.Task.Management.System.User.Service.UserService;
+import com.example.Task.Management.System.User_Service.Data.User;
+import com.example.Task.Management.System.User_Service.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

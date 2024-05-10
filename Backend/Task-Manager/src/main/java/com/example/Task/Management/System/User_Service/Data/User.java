@@ -1,4 +1,4 @@
-package com.example.Task.Management.System.User.Data;
+package com.example.Task.Management.System.User_Service.Data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

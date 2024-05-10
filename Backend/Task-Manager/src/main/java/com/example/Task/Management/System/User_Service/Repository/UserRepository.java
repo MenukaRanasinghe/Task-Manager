@@ -1,8 +1,9 @@
-package com.example.Task.Management.System.User.Repository;
+package com.example.Task.Management.System.User_Service.Repository;
 
-import com.example.Task.Management.System.User.Data.User;
+import com.example.Task.Management.System.User_Service.Data.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
