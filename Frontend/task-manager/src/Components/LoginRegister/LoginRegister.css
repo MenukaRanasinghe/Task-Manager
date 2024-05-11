@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 840px;
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+}
+
+.image {
+    flex: 1 1 50%; 
+    background:rgba(45, 52, 54,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.form {
+    flex: 1 1 50%;
+    padding: 40px;
+    max-width: 420px;
+    background: rgba(99, 110, 114,0.5);
+    box-sizing: border-box;
+}
+
+form h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+form .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-size: 15px;
+    color: white;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: white;
+    
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 15px;
+}
+
+form .remember{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: -15px 0 15px;
+}
+ .remember label input{
+    accent-color:#fff;
+    margin-right: 5px;
+}
+
+.remember a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember a:hover{
+    text-decoration: underline;
+}
+
+form button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: rgba(45, 52, 54,1.0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.form .register-link{
+    text-align: center;
+    margin:20px 0 15px;
+    font-size: 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover{
+    text-decoration: underline;
+}
