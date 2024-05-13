@@ -1,18 +1,14 @@
 import React from 'react';
 import './LoginRegister.css';
 import { FaUser , FaLock } from "react-icons/fa";
-import loginImage from '../Assets/login.png';
 
 
 const LoginRegister = () => {
   return (
     <div className='wrapper'>
-      <div className="image">
-        <img src={loginImage} alt="bg" />
-      </div>
       <div className="form login">
         <form action="">
-          <h1>Login</h1>
+          <h1>LOGIN</h1>
           <div className="input-box">
             <input type='email' placeholder='Email' required></input>
             <FaUser className='icon' />
