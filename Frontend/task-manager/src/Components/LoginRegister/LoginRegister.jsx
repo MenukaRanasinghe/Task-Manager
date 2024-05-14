@@ -9,6 +9,7 @@ const LoginRegister = () => {
   const [loginError, setLoginError] = useState(null);
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [registrationError, setRegistrationError] = useState(null);
+  const [userType, setUserType] = useState('');
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -28,21 +29,21 @@ const LoginRegister = () => {
     }
   };
   
-
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const username = formData.get('username');
     const email = formData.get('email');
-    const userType = formData.get('userType');
     const password = formData.get('password');
     const confirmPassword = formData.get('confirmPassword');
-
+    const userType = formData.get('type');
+    console.log('Type:', userType);
+  
     if (password !== confirmPassword) {
       setRegistrationError('Passwords do not match');
       return;
     }
-
+  
     try {
       const data = await register(username, email, password, userType);
       setRegisterSuccess(true);
@@ -54,6 +55,12 @@ const LoginRegister = () => {
       console.error('Registration failed:', error);
     }
   };
+   
+
+  const handleUserTypeChange = (e) => {
+    setUserType(e.target.value);
+  };
+  
 
   const toggleForm = () => {
     setIsLoginForm(!isLoginForm);
@@ -67,18 +74,16 @@ const LoginRegister = () => {
       <div className={`form ${isLoginForm ? 'login' : 'register'}`}>
         <form onSubmit={isLoginForm ? handleLoginSubmit : handleRegisterSubmit}>
           <h1>{isLoginForm ? 'LOGIN' : 'REGISTER'}</h1>
-          {isLoginForm ? (
-            <>
-              <div className="input-box">
-                <input type='email' name='usernameOrEmail' placeholder='Email or Username' required />
-                <FaUser className='icon' />
-              </div>
-              <div className="input-box">
-                <input type='password' name='password' placeholder='Password' required />
-                <FaLock className='icon' />
-              </div>
-            </>
-          ) : (
+          {!isLoginForm && (
+            <div className="input-box">
+              <select name='type' value={userType} onChange={handleUserTypeChange} required>
+                <option value="" disabled>Select User Type</option>
+                <option value="LEAD">Team Lead</option>
+                <option value="MEMBER">Team Member</option>
+              </select>
+            </div>
+          )}
+          {!isLoginForm ? (
             <>
               <div className="input-box">
                 <input type='text' name='username' placeholder='Username' required />
@@ -88,22 +93,24 @@ const LoginRegister = () => {
                 <input type='email' name='email' placeholder='Email' required />
                 <FaEnvelope className='icon' />
               </div>
+            </>
+          ) : (
+            <>
               <div className="input-box">
-                <select name='userType' required>
-                  <option value="" disabled>Select User Type</option>
-                  <option value="Team Lead">Team Lead</option>
-                  <option value="Team Member">Team Member</option>
-                </select>
-              </div>
-              <div className="input-box">
-                <input type='password' name='password' placeholder='Password' required />
-                <FaLock className='icon' />
-              </div>
-              <div className="input-box">
-                <input type='password' name='confirmPassword' placeholder='Confirm Password' required />
-                <FaLock className='icon' />
+                <input type='email' name='usernameOrEmail' placeholder='Email or Username' required />
+                <FaUser className='icon' />
               </div>
             </>
+          )}
+          <div className="input-box">
+            <input type='password' name='password' placeholder='Password' required />
+            <FaLock className='icon' />
+          </div>
+          {!isLoginForm && (
+            <div className="input-box">
+              <input type='password' name='confirmPassword' placeholder='Confirm Password' required />
+              <FaLock className='icon' />
+            </div>
           )}
           {isLoginForm && (
             <div className="remember">
@@ -118,11 +125,8 @@ const LoginRegister = () => {
           {registerSuccess && !isLoginForm && (
             <div className="success-msg">User registered successfully</div>
           )}
-          {loginError && (
-            <div className="error-msg">{loginError}</div>
-          )}
-          {registrationError && (
-            <div className="error-msg">{registrationError}</div>
+          {(loginError || registrationError) && (
+            <div className="error-msg">{loginError || registrationError}</div>
           )}
           <div className="register-link">
             <p>

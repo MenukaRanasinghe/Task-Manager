@@ -93,7 +93,7 @@ form .remember{
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-    margin: -15px 0 15px;
+    margin: -10px 0 5px;
 }
 .remember label input{
     accent-color:#fff;
@@ -121,6 +121,7 @@ form button{
     color: white;
     cursor: pointer;
     font-weight: 700;
+    margin-top: 5px;
 }
 
 .form .register-link{
@@ -143,7 +144,7 @@ form button{
     color: green;
     text-align: center;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 14px;
   }
 
@@ -151,6 +152,7 @@ form button{
     color: red;
     text-align: center;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 14px;
   }
