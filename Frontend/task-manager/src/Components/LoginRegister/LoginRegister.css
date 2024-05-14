@@ -138,3 +138,19 @@ form button{
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+.success-msg {
+    color: green;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .error-msg {
+    color: red;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
